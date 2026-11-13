@@ -10,7 +10,7 @@ scikit-learn>=1.9.1  # For additional ML features
 requests>=2.34.2
 sentence-transformers==6.1.0
 transformers==5.19.0
-Pillow==12.3.0
+Pillow==13.0.0
 urllib3==2.8.0
 aiofiles>=23.0.0
 python-multipart>=0.0.32

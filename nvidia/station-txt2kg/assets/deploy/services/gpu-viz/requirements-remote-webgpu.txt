@@ -5,7 +5,7 @@
 fastapi==0.104.1
 uvicorn==0.24.0
 websockets==12.0
-python-multipart==0.0.6
+python-multipart==0.0.31
 
 # RAPIDS dependencies (GPU-accelerated data processing)
 # These are included in the NVIDIA PyTorch container

@@ -29,7 +29,7 @@ scipy==1.15.3
 seaborn==0.13.2
 session-info2==0.2.3
 statsmodels==0.14.4
-streamlit==1.51.0
+streamlit==1.54.0
 threadpoolctl==3.6.0
 tifffile==2025.5.10
 tqdm==4.67.1

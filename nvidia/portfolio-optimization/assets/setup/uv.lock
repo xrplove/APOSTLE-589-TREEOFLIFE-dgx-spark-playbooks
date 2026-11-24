@@ -1,27 +1,27 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.10"
 resolution-markers = [
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version < '3.11' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version < '3.11' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version < '3.11' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version < '3.11' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version < '3.11' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version < '3.11' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
-    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version < '3.11' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
 ]
 conflicts = [[
@@ -53,7 +53,8 @@ version = "4.14.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "soupsieve" },
-    { name = "typing-extensions" },
+    { name = "typing-extensions", version = "4.15.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz", hash = "sha256:6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86", size = 627737, upload-time = "2025-11-30T15:08:26.084Z" }
 wheels = [
@@ -71,8 +72,8 @@ dependencies = [
     { name = "pathspec" },
     { name = "platformdirs" },
     { name = "pytokens" },
-    { name = "tomli", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "typing-extensions", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "tomli", marker = "python_full_version < '3.11'" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/4b/43/20b5c90612d7bdb2bdbcceeb53d588acca3bb8f0e4c5d5c751a2c8fdd55a/black-25.9.0.tar.gz", hash = "sha256:0474bca9a0dd1b51791fcc507a4e02078a1c63f6d4e4ae5544b9848c7adfb619", size = 648393, upload-time = "2025-09-19T00:27:37.758Z" }
 wheels = [
@@ -118,7 +119,7 @@ name = "cffi"
 version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pycparser", marker = "implementation_name != 'PyPy' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "pycparser", marker = "implementation_name != 'PyPy'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz", hash = "sha256:44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529", size = 523588, upload-time = "2025-09-08T23:24:04.541Z" }
 wheels = [
@@ -300,8 +301,8 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cffi" },
     { name = "numpy" },
-    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/81/e2/47f692161779dbd98876015de934943effb667a014e6f79a6d746b3e4c2a/clarabel-0.11.1.tar.gz", hash = "sha256:e7c41c47f0e59aeab99aefff9e58af4a8753ee5269bbeecbd5526fc6f41b9598", size = 253949, upload-time = "2025-06-11T16:49:05.864Z" }
 wheels = [
@@ -317,7 +318,7 @@ name = "click"
 version = "8.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz", hash = "sha256:12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a", size = 295065, upload-time = "2025-11-15T20:45:42.706Z" }
 wheels = [
@@ -365,7 +366,7 @@ resolution-markers = [
     "python_full_version < '3.11' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
 ]
 dependencies = [
-    { name = "numpy", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "numpy" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/66/54/eb9bfc647b19f2009dd5c7f5ec51c4e6ca831725f1aea7a993034f483147/contourpy-1.3.2.tar.gz", hash = "sha256:b6945942715a034c671b7fc54f9588126b0b8bf23db2696e3ca8328f3ff0ab54", size = 13466130, upload-time = "2025-04-15T17:47:53.79Z" }
 wheels = [
@@ -435,20 +436,20 @@ resolution-markers = [
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
-    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
 ]
 dependencies = [
-    { name = "numpy", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "numpy" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/58/01/1253e6698a07380cd31a736d248a3f2a50a7c88779a1813da27503cadc2a/contourpy-1.3.3.tar.gz", hash = "sha256:083e12155b210502d0bca491432bb04d56dc3432f95a979b429f2848c3dbe880", size = 13466174, upload-time = "2025-07-26T12:03:12.549Z" }
 wheels = [
@@ -801,7 +802,8 @@ dependencies = [
     { name = "pylibcudf-cu12" },
     { name = "rich" },
     { name = "rmm-cu12" },
-    { name = "typing-extensions" },
+    { name = "typing-extensions", version = "4.15.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.11' and extra == 'extra-7-cufolio-cuda12') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.11' and extra == 'extra-7-cufolio-cuda12') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
 ]
 wheels = [
     { url = "https://pypi.nvidia.com/cudf-cu12/cudf_cu12-25.10.0-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:72cb209847adb4299a82b143bb2420ab2da90f5c9aca127ca3e01c78b0efe570" },
@@ -835,7 +837,8 @@ dependencies = [
     { name = "pylibcudf-cu13" },
     { name = "rich" },
     { name = "rmm-cu13" },
-    { name = "typing-extensions" },
+    { name = "typing-extensions", version = "4.15.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.11' and extra == 'extra-7-cufolio-cuda13') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.11' and extra == 'extra-7-cufolio-cuda13') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
 ]
 wheels = [
     { url = "https://pypi.nvidia.com/cudf-cu13/cudf_cu13-25.10.0-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:9ab1eb85007a5530bf068a835104a4695d2edd5eb3c422f92ebd8dfd5dc1c397" },
@@ -1178,8 +1181,8 @@ dependencies = [
     { name = "clarabel" },
     { name = "numpy" },
     { name = "osqp" },
-    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "scs" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/e1/cf/583d8c25bf1ec8d43e0f9953fa3d48f095022dc2fc7e7a437ebdeaf16d9f/cvxpy-1.7.3.tar.gz", hash = "sha256:241d364f5962a1d68c4ae8393480766a09326e5771e2286d33a948e1976cbe70", size = 1635660, upload-time = "2025-09-22T18:21:42.245Z" }
@@ -1326,11 +1329,11 @@ wheels = [
 
 [[package]]
 name = "distlib"
-version = "0.4.0"
+version = "0.4.4"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/96/8e/709914eb2b5749865801041647dc7f4e6d00b549cfe88b65ca192995f07c/distlib-0.4.0.tar.gz", hash = "sha256:feec40075be03a04501a973d81f633735b4b69f98b05450592310c0f401a4e0d", size = 614605, upload-time = "2025-07-17T16:52:00.465Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/68/bc/d36966de7304047a1001a7559fbf266c464bb5d8cc85464536ef8c9bcc32/distlib-0.4.4.tar.gz", hash = "sha256:ca4175b4ac7f71223cc30ed7248c45d2b38c2439d8ee6e498ab67ed63cf3508d", size = 621304, upload-time = "2026-10-16T13:56:34.203Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/33/6b/e0547afaf41bf2c42e52430072fa5658766e3d65bd4b03a563d1b6336f57/distlib-0.4.0-py2.py3-none-any.whl", hash = "sha256:9659f7d87e46584a30b5780e43ac7a2143098441670ff0a49d5f9034c54a6c16", size = 469047, upload-time = "2025-07-17T16:51:58.613Z" },
+    { url = "https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl", hash = "sha256:cf09d55b1e85a89576b036aeb71550bfd68320f3f21761ca329eadadad918638", size = 472099, upload-time = "2026-10-16T13:56:32.053Z" },
 ]
 
 [[package]]
@@ -1392,7 +1395,7 @@ name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" } },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [
@@ -1446,11 +1449,45 @@ wheels = [
 
 [[package]]
 name = "filelock"
-version = "3.20.0"
+version = "4.1.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/58/46/0028a82567109b5ef6e4d2a1f04a583fb513e6cf9527fcdd09afd817deeb/filelock-3.20.0.tar.gz", hash = "sha256:711e943b4ec6be42e1d4e6690b48dc175c822967466bb31c0c293f34334c13f4", size = 18922, upload-time = "2025-10-08T18:03:50.056Z" }
+resolution-markers = [
+    "python_full_version < '3.11' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4c/58/6fd434bec86eff7c38a3168454cb132b762b2bea9b3ac094101a2f7bc32a/filelock-4.1.0.tar.gz", hash = "sha256:ad7f724afef953e731b1cc39bcd3a09166d72ed7fcdf29e6e88b1c3235c6715d", size = 561277, upload-time = "2026-10-09T19:57:20.34Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/76/91/7216b27286936c16f5b4d0c530087e4a54eead683e6b0b73dd0c64844af6/filelock-3.20.0-py3-none-any.whl", hash = "sha256:339b4732ffda5cd79b13f4e2711a31b0365ce445d95d243bb996273d072546a2", size = 16054, upload-time = "2025-10-08T18:03:48.35Z" },
+    { url = "https://files.pythonhosted.org/packages/ee/86/032133892a5de43b5a98200b01aadcad68cc255e274a762f08b8a76d2912/filelock-4.1.0-py3-none-any.whl", hash = "sha256:2ce9818e3e2d8f284c1a964414447ef148d42a5fd5e2a477a7118e574b293ec1", size = 133003, upload-time = "2026-10-09T19:57:18.716Z" },
+]
+
+[[package]]
+name = "filelock"
+version = "4.3.1"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e6/86/a5b9ec254b90efb180e390e31a4fa50a93b714d6e4174fa9a4ee25607159/filelock-4.3.1.tar.gz", hash = "sha256:4c5ee627c401f1863ac6a0de9a14a28d3bb5f8c730b45e2fd6e5dbc79cf34b9e", size = 742330, upload-time = "2026-11-23T18:01:13.656Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/53/7b/678c8fbd372ff96375ac0bbdd20b78f20ef8ba6ca5966c49548fa5886557/filelock-4.3.1-py3-none-any.whl", hash = "sha256:79e43df8e9fe509cd83a3899a7c186c8077cbbe4d200a1ed3705c2f3bb6bc487", size = 244559, upload-time = "2026-11-23T18:01:12.261Z" },
 ]
 
 [[package]]
@@ -1597,11 +1634,11 @@ name = "ipykernel"
 version = "7.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "appnope", marker = "sys_platform == 'darwin' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "appnope", marker = "sys_platform == 'darwin'" },
     { name = "comm" },
     { name = "debugpy" },
-    { name = "ipython", version = "8.37.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "ipython", version = "9.7.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "ipython", version = "8.37.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "ipython", version = "9.7.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "jupyter-client" },
     { name = "jupyter-core" },
     { name = "matplotlib-inline" },
@@ -1631,17 +1668,17 @@ resolution-markers = [
     "python_full_version < '3.11' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
 ]
 dependencies = [
-    { name = "colorama", marker = "(python_full_version < '3.11' and sys_platform == 'win32') or (python_full_version >= '3.11' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13') or (sys_platform != 'win32' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "decorator", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "exceptiongroup", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "jedi", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "matplotlib-inline", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "pexpect", marker = "(python_full_version < '3.11' and sys_platform != 'emscripten' and sys_platform != 'win32') or (python_full_version >= '3.11' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13') or (sys_platform == 'emscripten' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13') or (sys_platform == 'win32' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "prompt-toolkit", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "pygments", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "stack-data", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "traitlets", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "typing-extensions", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "decorator" },
+    { name = "exceptiongroup" },
+    { name = "jedi" },
+    { name = "matplotlib-inline" },
+    { name = "pexpect", marker = "sys_platform != 'emscripten' and sys_platform != 'win32'" },
+    { name = "prompt-toolkit" },
+    { name = "pygments" },
+    { name = "stack-data" },
+    { name = "traitlets" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" } },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/85/31/10ac88f3357fc276dc8a64e8880c82e80e7459326ae1d0a211b40abf6665/ipython-8.37.0.tar.gz", hash = "sha256:ca815841e1a41a1e6b73a0b08f3038af9b2252564d01fc405356d34033012216", size = 5606088, upload-time = "2025-05-31T16:39:09.613Z" }
 wheels = [
@@ -1656,30 +1693,30 @@ resolution-markers = [
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
-    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
 ]
 dependencies = [
-    { name = "colorama", marker = "(python_full_version >= '3.11' and sys_platform == 'win32') or (python_full_version < '3.11' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13') or (sys_platform != 'win32' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "decorator", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "ipython-pygments-lexers", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "jedi", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "matplotlib-inline", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "pexpect", marker = "(python_full_version >= '3.11' and sys_platform != 'emscripten' and sys_platform != 'win32') or (python_full_version < '3.11' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13') or (sys_platform == 'emscripten' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13') or (sys_platform == 'win32' and extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "prompt-toolkit", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "pygments", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "stack-data", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "traitlets", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "typing-extensions", marker = "python_full_version == '3.11.*' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "decorator" },
+    { name = "ipython-pygments-lexers" },
+    { name = "jedi" },
+    { name = "matplotlib-inline" },
+    { name = "pexpect", marker = "sys_platform != 'emscripten' and sys_platform != 'win32'" },
+    { name = "prompt-toolkit" },
+    { name = "pygments" },
+    { name = "stack-data" },
+    { name = "traitlets" },
+    { name = "typing-extensions", version = "4.15.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/29/e6/48c74d54039241a456add616464ea28c6ebf782e4110d419411b83dae06f/ipython-9.7.0.tar.gz", hash = "sha256:5f6de88c905a566c6a9d6c400a8fed54a638e1f7543d17aae2551133216b1e4e", size = 4422115, upload-time = "2025-11-05T12:18:54.646Z" }
 wheels = [
@@ -1691,7 +1728,7 @@ name = "ipython-pygments-lexers"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pygments", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "pygments" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ef/4c/5dd1d8af08107f88c7f741ead7a40854b8ac24ddf9ae850afbcf698aa552/ipython_pygments_lexers-1.1.1.tar.gz", hash = "sha256:09c0138009e56b6854f9535736f4171d855c8c08a563a0dcd8022f78355c7e81", size = 8393, upload-time = "2025-01-17T11:24:34.505Z" }
 wheels = [
@@ -2250,8 +2287,8 @@ name = "matplotlib"
 version = "3.10.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "contourpy", version = "1.3.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "contourpy", version = "1.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "contourpy", version = "1.3.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "contourpy", version = "1.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "cycler" },
     { name = "fonttools" },
     { name = "kiwisolver" },
@@ -2913,8 +2950,8 @@ dependencies = [
     { name = "jinja2" },
     { name = "joblib" },
     { name = "numpy" },
-    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "setuptools" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/85/cf/023078d9985526494901e9ca91c59d17b2d2e5f87a047f4b8b9749ce5922/osqp-1.0.5.tar.gz", hash = "sha256:60b484cf829c99d94bb7ae4e9beb2e0895d94c5e64e074b5b27b6ef887941936", size = 56757, upload-time = "2025-10-15T14:05:33.613Z" }
@@ -2943,11 +2980,11 @@ wheels = [
 
 [[package]]
 name = "packaging"
-version = "25.0"
+version = "26.4"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f", size = 165727, upload-time = "2025-04-19T11:48:59.673Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz", hash = "sha256:c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a", size = 355877, upload-time = "2026-11-23T21:44:11.152Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484", size = 66469, upload-time = "2025-04-19T11:48:57.875Z" },
+    { url = "https://files.pythonhosted.org/packages/ba/7b/5504f91c9c2733f693d7759e50ede5d27119d4da7e5836c46d3b5ff81d56/packaging-26.4-py3-none-any.whl", hash = "sha256:81383611a09c1bc0b08b76e0fd5829d7c6824c65b27a6aee339da133f4233ea2", size = 140049, upload-time = "2026-11-23T21:44:09.531Z" },
 ]
 
 [[package]]
@@ -3344,7 +3381,8 @@ dependencies = [
     { name = "nvtx" },
     { name = "packaging" },
     { name = "rmm-cu12" },
-    { name = "typing-extensions" },
+    { name = "typing-extensions", version = "4.15.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.11' and extra == 'extra-7-cufolio-cuda12') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.11' and extra == 'extra-7-cufolio-cuda12') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
 ]
 wheels = [
     { url = "https://pypi.nvidia.com/pylibcudf-cu12/pylibcudf_cu12-25.10.0-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:75217bbdcf0d6fe0eff487a49646b4b0694e65e05c28a1a462a6119767bddc9c" },
@@ -3367,7 +3405,8 @@ dependencies = [
     { name = "nvtx" },
     { name = "packaging" },
     { name = "rmm-cu13" },
-    { name = "typing-extensions" },
+    { name = "typing-extensions", version = "4.15.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.11' and extra == 'extra-7-cufolio-cuda13') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.11' and extra == 'extra-7-cufolio-cuda13') or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
 ]
 wheels = [
     { url = "https://pypi.nvidia.com/pylibcudf-cu13/pylibcudf_cu13-25.10.0-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:fa6fd6c240ec3818111297abb96791152d53adbd1d234db94bc49eb9ce3dd1fe" },
@@ -3441,6 +3480,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3", size = 342432, upload-time = "2024-03-01T18:36:20.211Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427", size = 229892, upload-time = "2024-03-01T18:36:18.57Z" },
+]
+
+[[package]]
+name = "python-discovery"
+version = "1.9.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "filelock", version = "4.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "filelock", version = "4.3.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0c/72/8e1d062fa1eed059b49a981394ab3ae26fffea6bbcffa4f7545aa2fb8c4f/python_discovery-1.9.7.tar.gz", hash = "sha256:cea89e8a8b86e19731c67f8393f34eb1a2f96c9f97f3e406929a99c646a2358d", size = 148580, upload-time = "2026-11-23T18:24:40.767Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6c/47/d4852249f59b263ff1bc66456c6ca13dfd5d67900ce72c0418389b33db5d/python_discovery-1.9.7-py3-none-any.whl", hash = "sha256:3add4a4dfc794f8e4a8c0fa0d9d6563172196d68709071a627e89fc36af39177", size = 99275, upload-time = "2026-11-23T18:24:39.415Z" },
 ]
 
 [[package]]
@@ -3530,7 +3582,7 @@ name = "pyzmq"
 version = "27.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cffi", marker = "implementation_name == 'pypy' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "cffi", marker = "implementation_name == 'pypy'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/04/0b/3c9baedbdf613ecaa7aa07027780b8867f57b6293b6ee50de316c9f3222b/pyzmq-27.1.0.tar.gz", hash = "sha256:ac0765e3d44455adb6ddbf4417dcce460fc40a05978c08efdf2948072f6db540", size = 281750, upload-time = "2025-09-08T23:10:18.157Z" }
 wheels = [
@@ -3740,8 +3792,8 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "joblib" },
     { name = "numpy" },
-    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "threadpoolctl" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/41/84/5f4af978fff619706b8961accac84780a6d298d82a8873446f72edb4ead0/scikit_learn-1.7.1.tar.gz", hash = "sha256:24b3f1e976a4665aa74ee0fcaac2b8fccc6ae77c8e07ab25da3ba6d3292b9802", size = 7190445, upload-time = "2025-07-18T08:01:54.5Z" }
@@ -3787,7 +3839,7 @@ resolution-markers = [
     "python_full_version < '3.11' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
 ]
 dependencies = [
-    { name = "numpy", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "numpy" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/0f/37/6964b830433e654ec7485e45a00fc9a27cf868d622838f6b6d9c5ec0d532/scipy-1.15.3.tar.gz", hash = "sha256:eae3cf522bc7df64b42cad3925c876e1b0b6c35c1337c93e12c0f366f55b0eaf", size = 59419214, upload-time = "2025-05-08T16:13:05.955Z" }
 wheels = [
@@ -3846,20 +3898,20 @@ resolution-markers = [
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
-    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
-    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
     "python_full_version == '3.11.*' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
 ]
 dependencies = [
-    { name = "numpy", marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "numpy" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/0a/ca/d8ace4f98322d01abcd52d381134344bf7b431eba7ed8b42bdea5a3c2ac9/scipy-1.16.3.tar.gz", hash = "sha256:01e87659402762f43bd2fee13370553a17ada367d42e7487800bf2916535aecb", size = 30597883, upload-time = "2025-10-28T17:38:54.068Z" }
 wheels = [
@@ -3931,8 +3983,8 @@ version = "3.2.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numpy" },
-    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
-    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "scipy", version = "1.16.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/0c/c0/b894547702586a252f8c417e0c77111c9d2ae1d69c4a7751eb505e4fdb62/scs-3.2.9.tar.gz", hash = "sha256:df9542d435d21938ed09494a6c525a9772779902b61300961e16890a2df7f572", size = 1690742, upload-time = "2025-10-12T20:20:21.489Z" }
 wheels = [
@@ -4159,9 +4211,43 @@ wheels = [
 name = "typing-extensions"
 version = "4.15.0"
 source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version >= '3.12' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version == '3.11.*' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+]
 sdist = { url = "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466", size = 109391, upload-time = "2025-08-25T13:49:26.313Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/18/67/36e9267722cc04a6b9f15c7f3441c2363321a3ea07da7ae0c0707beb2a9c/typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548", size = 44614, upload-time = "2025-08-25T13:49:24.86Z" },
+]
+
+[[package]]
+name = "typing-extensions"
+version = "4.16.0"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version < '3.11' and platform_machine == 'aarch64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra != 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'aarch64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine == 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+    "python_full_version < '3.11' and extra != 'extra-7-cufolio-cuda12' and extra != 'extra-7-cufolio-cuda13'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz", hash = "sha256:dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5", size = 113555, upload-time = "2026-07-02T08:40:05.92Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl", hash = "sha256:481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8", size = 45571, upload-time = "2026-07-02T08:40:04.659Z" },
 ]
 
 [[package]]
@@ -4228,17 +4314,20 @@ wheels = [
 
 [[package]]
 name = "virtualenv"
-version = "20.35.4"
+version = "21.14.13"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "distlib" },
-    { name = "filelock" },
+    { name = "filelock", version = "4.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "filelock", version = "4.3.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "packaging" },
     { name = "platformdirs" },
-    { name = "typing-extensions", marker = "python_full_version < '3.11' or (extra == 'extra-7-cufolio-cuda12' and extra == 'extra-7-cufolio-cuda13')" },
+    { name = "python-discovery" },
+    { name = "typing-extensions", version = "4.16.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/20/28/e6f1a6f655d620846bd9df527390ecc26b3805a0c5989048c210e22c5ca9/virtualenv-20.35.4.tar.gz", hash = "sha256:643d3914d73d3eeb0c552cbb12d7e82adf0e504dbf86a3182f8771a153a1971c", size = 6028799, upload-time = "2025-10-29T06:57:40.511Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/70/aa/bff50daee0488e16d611258a9b6c5a1d0c9e128f8ca424e9f4e1c0444ef2/virtualenv-21.14.13.tar.gz", hash = "sha256:de5307ba4b9a0001d9c8ea02832d38f63ca432880f416c1bface61c4323fd905", size = 5570301, upload-time = "2026-10-22T20:10:16.952Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/79/0c/c05523fa3181fdf0c9c52a6ba91a23fbf3246cc095f26f6516f9c60e6771/virtualenv-20.35.4-py3-none-any.whl", hash = "sha256:c21c9cede36c9753eeade68ba7d523529f228a403463376cf821eaae2b650f1b", size = 6005095, upload-time = "2025-10-29T06:57:37.598Z" },
+    { url = "https://files.pythonhosted.org/packages/bb/a9/c10d8a44a29fb94a18b43fdf11f38caca53ae7c9406f11a72b1cb8f624f1/virtualenv-21.14.13-py3-none-any.whl", hash = "sha256:5fbb04138a4861580b78ba9110d529a26bc48fcc93c8ec36bc0202eeed96a788", size = 5557094, upload-time = "2026-10-22T20:10:15.096Z" },
 ]
 
 [[package]]
